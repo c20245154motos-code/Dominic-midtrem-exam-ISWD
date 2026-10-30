@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AquaPure Water Refilling Station provides convenient purified water services.">
+
+    <title>AquaPure | Water Refilling Station</title>
+
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tailwind Design System -->
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @theme {
+            --color-water: #075985;
+            --color-aqua: #06B6D4;
+            --color-ice: #F0F9FF;
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center justify-center rounded-xl bg-water px-6 py-3 font-bold text-white shadow-md hover:bg-sky-800 dark:bg-aqua dark:text-slate-950 dark:hover:bg-cyan-300;
+            }
+
+            .btn-secondary {
+                @apply inline-flex items-center justify-center rounded-xl border-2 border-water px-6 py-3 font-bold text-water hover:bg-water hover:text-white dark:border-aqua dark:text-aqua dark:hover:bg-aqua dark:hover:text-slate-950;
+            }
+
+            .service-card {
+                @apply rounded-2xl border border-sky-100 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800;
+            }
+        }
+
+        /* Keep content visible for users who prefer reduced motion. */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-ice text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="fixed left-0 top-0 z-50 h-1 w-full bg-sky-100 dark:bg-slate-800">
+        <div
+            id="progressBar"
+            class="h-full w-full origin-left bg-aqua">
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 border-b border-sky-100 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/95">
+
+        <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+
+            <!-- LOGO -->
+            <a href="#home" class="text-2xl font-extrabold text-water dark:text-aqua">
+                AquaPure<span class="text-aqua">.</span>
+            </a>
+
+            <!-- NAVIGATION -->
+            <div class="flex flex-wrap items-center gap-3 text-sm font-semibold md:gap-6">
+
+                <a href="#home" class="text-slate-700 hover:text-aqua dark:text-slate-200 dark:hover:text-aqua">
+                    Home
+                </a>
+
+                <a href="#about" class="text-slate-700 hover:text-aqua dark:text-slate-200 dark:hover:text-aqua">
+                    About
+                </a>
+
+                <a href="#services" class="text-slate-700 hover:text-aqua dark:text-slate-200 dark:hover:text-aqua">
+                    Services
+                </a>
+
+                <a href="#contact" class="text-slate-700 hover:text-aqua dark:text-slate-200 dark:hover:text-aqua">
+                    Contact
+                </a>
+
+                <!-- DARK MODE BUTTON -->
+                <button
+                   
+    id="darkModeToggle"
+  type="button"
+    aria-pressed="false"
+    class="rounded-xl bg-sky-100 px-4 py-2 font-bold text-water hover:bg-sky-200 dark:bg-slate-800 dark:text-aqua">
+
+    🌙 Dark Mode
+
+</button> 
+                
+                
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- ================================= -->
+        <!-- HERO SECTION -->
+        <!-- ================================= -->
+
+        <section id="home" class="overflow-hidden bg-ice px-6 py-20 dark:bg-slate-950 md:py-28">
+
+            <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+
+                <!-- HERO TEXT -->
+                <div>
+
+                    <p id="heroTag" class="mb-4 inline-block rounded-full bg-sky-100 px-4 py-2 text-sm font-bold text-water dark:bg-slate-800 dark:text-aqua">
+                        PURE WATER, BETTER LIVING
+                    </p>
+
+                    <h1 id="heroTitle" class="mb-6 text-4xl font-extrabold leading-tight text-water dark:text-white md:text-6xl">
+                        Fresh and Pure Water for Every Home.
+                    </h1>
+
+                    <p id="heroText" class="mb-8 max-w-xl text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+                        AquaPure Water Refilling Station provides convenient access to purified drinking water for families, homes, and businesses.
+                    </p>
+
+                    <div id="heroButtons" class="flex flex-wrap gap-4">
+
+                        <a href="#services" class="btn-primary">
+                            Explore Services
+                        </a>
+
+                        <a href="#contact" class="btn-secondary">
+                            Contact Us
+                        </a>
+
+                    </div>
+
+                    <button
+                        id="replayBtn"
+                        type="button"
+                        class="mt-6 rounded-lg px-2 py-2 text-sm font-semibold text-water underline underline-offset-4 hover:text-aqua dark:text-aqua dark:hover:text-cyan-300">
+                        Replay Intro Animation
+                    </button>
+
+                </div>
+
+
+                <!-- HERO VISUAL -->
+                <div id="heroVisual">
+
+                    <div class="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800 md:p-12">
+
+                        <div class="flex flex-col items-center text-center">
+
+                            <div class="mb-6 flex h-40 w-40 items-center justify-center rounded-full bg-sky-100 text-8xl dark:bg-slate-700">
+                                💧
+                            </div>
+
+                            <h2 class="mb-3 text-2xl font-extrabold text-water dark:text-white">
+                                AquaPure
+                            </h2>
+
+                            <p class="max-w-xs text-slate-600 dark:text-slate-300">
+                                Pure Water. Healthy Living. Every Day.
+                            </p>
+
+                            <div class="mt-8 grid w-full grid-cols-2 gap-4">
+
+                                <div class="rounded-xl bg-ice p-4 dark:bg-slate-700">
+                                    <p class="text-2xl font-extrabold text-water dark:text-aqua">
+                                        01
+                                    </p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Quality Focus
+                                    </p>
+                                </div>
+
+                                <div class="rounded-xl bg-ice p-4 dark:bg-slate-700">
+                                    <p class="text-2xl font-extrabold text-water dark:text-aqua">
+                                        02
+                                    </p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Customer Care
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- ABOUT SECTION -->
+        <!-- ================================= -->
+
+        <section id="about" class="reveal bg-white px-6 py-20 dark:bg-slate-900 md:py-24">
+
+            <div class="mx-auto max-w-7xl">
+
+                <div class="mx-auto mb-12 max-w-3xl text-center">
+
+                    <p class="mb-3 font-bold uppercase tracking-widest text-aqua">
+                        About AquaPure
+                    </p>
+
+                    <h2 class="mb-6 text-3xl font-extrabold text-water dark:text-white md:text-4xl">
+                        Making Clean Drinking Water More Accessible
+                    </h2>
+
+                    <p class="leading-relaxed text-slate-700 dark:text-slate-300">
+                        AquaPure Water Refilling Station is a fictional small business created to provide convenient purified drinking water services. Our goal is to make water refilling simple and accessible while giving customers friendly and reliable service.
+                    </p>
+
+                </div>
+
+
+                <!-- ABOUT CARDS -->
+                <div class="grid gap-6 md:grid-cols-3">
+
+                    <article class="service-card text-center">
+                        <div class="mb-4 text-4xl">💧</div>
+
+                        <h3 class="mb-2 text-xl font-bold text-water dark:text-white">
+                            Clean Water
+                        </h3>
+
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Focused on providing properly handled purified drinking water.
+                        </p>
+                    </article>
+
+
+                    <article class="service-card text-center">
+                        <div class="mb-4 text-4xl">🤝</div>
+
+                        <h3 class="mb-2 text-xl font-bold text-water dark:text-white">
+                            Customer Service
+                        </h3>
+
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Friendly assistance and convenient service for customers.
+                        </p>
+                    </article>
+
+
+                    <article class="service-card text-center">
+                        <div class="mb-4 text-4xl">🏠</div>
+
+                        <h3 class="mb-2 text-xl font-bold text-water dark:text-white">
+                            Home Convenience
+                        </h3>
+
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Water refilling options designed for households and businesses.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- SERVICES SECTION -->
+        <!-- ================================= -->
+
+        <section id="services" class="reveal bg-ice px-6 py-20 dark:bg-slate-950 md:py-24">
+
+            <div class="mx-auto max-w-7xl">
+
+                <div class="mb-12 text-center">
+
+                    <p class="mb-3 font-bold uppercase tracking-widest text-aqua">
+                        What We Offer
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold text-water dark:text-white md:text-4xl">
+                        Our Services
+                    </h2>
+
+                    <p class="mx-auto mt-4 max-w-2xl text-slate-700 dark:text-slate-300">
+                        Discover convenient water services designed to support your everyday needs.
+                    </p>
+
+                </div>
+
+
+                <!-- SERVICE CARDS -->
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                    <!-- SERVICE 1 -->
+                    <article class="service-card">
+
+                        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-sky-100 text-3xl dark:bg-slate-700">
+                            🚰
+                        </div>
+
+                        <h3 class="mb-3 text-xl font-bold text-water dark:text-white">
+                            Purified Water
+                        </h3>
+
+                        <p class="leading-relaxed text-slate-600 dark:text-slate-300">
+                            Purified drinking water prepared for everyday household and personal use.
+                        </p>
+
+                    </article>
+
+
+                    <!-- SERVICE 2 -->
+                    <article class="service-card">
+
+                        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-sky-100 text-3xl dark:bg-slate-700">
+                            🛵
+                        </div>
+
+                        <h3 class="mb-3 text-xl font-bold text-water dark:text-white">
+                            Water Delivery
+                        </h3>
+
+                        <p class="leading-relaxed text-slate-600 dark:text-slate-300">
+                            Convenient delivery options for customers who prefer water delivered to their homes or businesses.
+                        </p>
+
+                    </article>
+
+
+                    <!-- SERVICE 3 -->
+                    <article class="service-card">
+
+                        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-sky-100 text-3xl dark:bg-slate-700">
+                            🫙
+                        </div>
+
+                        <h3 class="mb-3 text-xl font-bold text-water dark:text-white">
+                            Gallon Refilling
+                        </h3>
+
+                        <p class="leading-relaxed text-slate-600 dark:text-slate-300">
+                            Water refilling service for customers using reusable water containers.
+                        </p>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- CONTACT SECTION -->
+        <!-- ================================= -->
+
+        <section id="contact" class="reveal bg-white px-6 py-20 dark:bg-slate-900 md:py-24">
+
+            <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
+
+                <!-- CONTACT INFORMATION -->
+                <div>
+
+                    <p class="mb-3 font-bold uppercase tracking-widest text-aqua">
+                        Get In Touch
+                    </p>
+
+                    <h2 class="mb-6 text-3xl font-extrabold text-water dark:text-white md:text-4xl">
+                        Contact AquaPure
+                    </h2>
+
+                    <p class="mb-8 leading-relaxed text-slate-700 dark:text-slate-300">
+                        Have questions about our services? Send us a message through the contact form. We would be happy to hear from you.
+                    </p>
+
+
+                    <div class="space-y-5">
+
+                        <div class="flex items-center gap-4">
+
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-2xl dark:bg-slate-700">
+                                📍
+                            </span>
+
+                            <div>
+                                <h3 class="font-bold text-water dark:text-white">
+                                    Address
+                                </h3>
+
+                                <p class="text-slate-600 dark:text-slate-300">
+                                    Your Business Address
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-4">
+
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-2xl dark:bg-slate-700">
+                                📞
+                            </span>
+
+                            <div>
+                                <h3 class="font-bold text-water dark:text-white">
+                                    Phone
+                                </h3>
+
+                                <p class="text-slate-600 dark:text-slate-300">
+                                    +63 900 000 0000
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-4">
+
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-2xl dark:bg-slate-700">
+                                ✉️
+                            </span>
+
+                            <div>
+                                <h3 class="font-bold text-water dark:text-white">
+                                    Email
+                                </h3>
+
+                                <p class="text-slate-600 dark:text-slate-300">
+                                    aquapure@example.com
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CONTACT FORM -->
+                <div class="rounded-2xl border border-sky-100 bg-ice p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800 md:p-8">
+
+                    <form id="contactForm" class="space-y-5">
+
+                        <div>
+
+                            <label for="name" class="mb-2 block font-semibold text-slate-800 dark:text-slate-200">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                autocomplete="name"
+                                required
+                                class="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-slate-900 outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-400">
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="email" class="mb-2 block font-semibold text-slate-800 dark:text-slate-200">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                                class="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-slate-900 outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-400">
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="message" class="mb-2 block font-semibold text-slate-800 dark:text-slate-200">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="Write your message here..."
+                                required
+                                class="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-slate-900 outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-400"></textarea>
+
+                        </div>
+
+
+                        <button type="submit" class="btn-primary w-full">
+                            Send Message
+                        </button>
+
+
+                        <p
+                            id="formMessage"
+                            class="hidden text-sm font-semibold text-water dark:text-aqua"
+                            role="status"
+                            aria-live="polite">
+                            Thank you! This is a demonstration form. No message was sent.
+                        </p>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================================= -->
+    <!-- FOOTER -->
+    <!-- ================================= -->
+
+    <footer class="bg-water px-6 py-8 text-white dark:bg-slate-950 dark:text-slate-300">
+
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+
+            <div>
+
+                <h2 class="text-xl font-extrabold">
+                    AquaPure<span class="text-aqua">.</span>
+                </h2>
+
+                <p class="mt-1 text-sm text-sky-100 dark:text-slate-400">
+                    Pure Water. Healthy Living. Every Day.
+                </p>
+
+            </div>
+
+            <p class="text-sm text-sky-100 dark:text-slate-400">
+                &copy; 2026 AquaPure Water Refilling Station. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <!-- ================================= -->
+    <!-- JAVASCRIPT FILES - KEEP THIS ORDER -->
+    <!-- ================================= -->
+
+    <!-- 1. GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <!-- 2. ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <!-- 3. Your JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
